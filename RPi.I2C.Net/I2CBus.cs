@@ -93,7 +93,7 @@ namespace RPi.I2C.Net
 			if (res== -1)
 				throw new IOException(String.Format("Error accessing address '{0}': {1}", address, UnixMarshal.GetErrorDescription(Stdlib.GetLastError())));
 			if (res== -2)
-				throw new IOException(String.Format("Error writing to address '{0}': {1}", address, UnixMarshal.GetErrorDescription(Stdlib.GetLastError())));
+				throw new IOException(String.Format("Error writing to address '{0}': I2C transaction failed", address));
 		}
 
 
