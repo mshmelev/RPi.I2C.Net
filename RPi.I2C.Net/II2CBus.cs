@@ -18,20 +18,31 @@ namespace RPi.I2C.Net
 		/// <param name="bytes"></param>
 		void WriteBytes(int address, byte[] bytes);
 
-		/// <summary>
-		/// Writes the passed text using UTF-8 encoding w/o BOM.
-		/// </summary>
-		/// <param name="address">Address of a destination device</param>
-		/// <param name="text"></param>
-		void WriteString(int address, string text);
-
 
 		/// <summary>
-		/// Writes the passed text using the passed encoding.
+		/// Writes command with data.
 		/// </summary>
-		/// <param name="address">Address of a destination device</param>
-		/// <param name="text"></param>
-		/// <param name="encoding"></param>
-		void WriteString(int address, string text, Encoding encoding);
+		/// <param name="address"></param>
+		/// <param name="command"></param>
+		/// <param name="data"></param>
+		void WriteCommand(int address, byte command, byte data);
+
+		/// <summary>
+		/// Writes command with data.
+		/// </summary>
+		/// <param name="address"></param>
+		/// <param name="command"></param>
+		/// <param name="data1"></param>
+		/// <param name="data2"></param>
+		void WriteCommand(int address, byte command, byte data1, byte data2);
+
+		/// <summary>
+		/// Writes command with data.
+		/// </summary>
+		/// <param name="address"></param>
+		/// <param name="command"></param>
+		/// <param name="data"></param>
+		void WriteCommand(int address, byte command, ushort data);
+
 	}
 }
