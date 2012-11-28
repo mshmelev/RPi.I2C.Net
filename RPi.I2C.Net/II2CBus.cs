@@ -14,6 +14,7 @@ namespace RPi.I2C.Net
 		/// <summary>
 		/// Writes array of bytes.
 		/// </summary>
+		/// <remarks>Do not write more than 3 bytes at once, RPi drivers don't support this currently.</remarks>
 		/// <param name="address">Address of a destination device</param>
 		/// <param name="bytes"></param>
 		void WriteBytes(int address, byte[] bytes);
@@ -43,6 +44,15 @@ namespace RPi.I2C.Net
 		/// <param name="command"></param>
 		/// <param name="data"></param>
 		void WriteCommand(int address, byte command, ushort data);
+
+
+		/// <summary>
+		/// Reads bytes from device with passed address.
+		/// </summary>
+		/// <param name="address"></param>
+		/// <param name="count"></param>
+		/// <returns></returns>
+		byte[] ReadBytes(int address, int count);
 
 	}
 }

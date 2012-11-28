@@ -85,6 +85,7 @@ namespace RPi.I2C.Net
 		/// <summary>
 		/// Writes array of bytes.
 		/// </summary>
+		/// <remarks>Do not write more than 3 bytes at once, RPi drivers don't support this currently.</remarks>
 		/// <param name="address">Address of a destination device</param>
 		/// <param name="bytes"></param>
 		public void WriteBytes(int address, byte[] bytes)
@@ -142,6 +143,28 @@ namespace RPi.I2C.Net
 			bytes[1] = (byte)(data & 0xff);
 			bytes[2] = (byte)(data >> 8);
 			WriteBytes(address, bytes);
+		}
+
+
+		/// <summary>
+		/// Reads bytes from device with passed address.
+		/// </summary>
+		/// <param name="address"></param>
+		/// <param name="count"></param>
+		/// <returns></returns>
+		public byte[] ReadBytes(int address, int count)
+		{
+			byte[] buf = new byte[count];
+			int res= I2CNativeLib.ReadBytes(busHandle, address, buf, buf.Length);
+			if (res== -1)
+				throw new IOException(String.Format("Error accessing address '{0}': {1}", address, UnixMarshal.GetErrorDescription(Stdlib.GetLastError())));
+			if (res<= 0)
+				throw new IOException(String.Format("Error reading from address '{0}': I2C transaction failed", address));
+
+			if (res< count)
+				Array.Resize(ref buf, res);
+
+			return buf;
 		}
 	}
 }
