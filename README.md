@@ -36,20 +36,20 @@ using (var bus = RPi.I2C.Net.I2CBus.Open("/dev/i2c-1"))
 
 ## Performance
 The performance testing was done using:
-    * Raspberry Pi, Rev.2, not overclocked
-	* Arduino Uno
+* Raspberry Pi, Rev.2, not overclocked
+* Arduino Uno
 
-*Writing*
+####Writing
 Sending 3-byte packets to Arduino.
-Results: 1428 transactions per second (4284 Bytes/s)
+Results: **1428 transactions per second** (4284 Bytes/s)
 
-*Reading*
+####Reading
 Reading 3-byte packets from Arduino.
-Results: 1660 transactions per second (4980 Bytes/s)
+Results: **1660 transactions per second** (4980 Bytes/s)
 
-*Reading and Writing*
+####Reading and Writing
 Sending 3-byte packet to Arduino and reading back the respose 3-byte packet.
-Results: 830 transactions per second (4980 Bytes/s total)
+Results: **830 transactions per second** (4980 Bytes/s total)
 
 ## License
 The project uses [MIT license](https://github.com/mshmelev/RPi.I2C.Net/blob/master/license.txt): do whatever your want wherever you want it.
