@@ -24,7 +24,7 @@ int writeBytes (int busHandle, int addr, byte* buf, int len)
 	if (ioctl (busHandle, I2C_SLAVE, addr) < 0)
 		return -1;
 
-	if (write (busHandle, buf, 3) != len)
+	if (write (busHandle, buf, len) != len)
 		return -2;
 
 	return len;
