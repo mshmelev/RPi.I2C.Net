@@ -1,7 +1,7 @@
 RPi.I2C.Net
 ===========
 
-I2C library on C# for Raspberry Pi.
+I2C library on C# for Raspberry Pi. About connecting Arduino and Raspberry Pi read this blog posts: [hardware part](http://blog.mshmelev.com/2013/06/connecting-raspberry-pi-and-arduino.html) and [software part](http://blog.mshmelev.com/2013/06/connecting-raspberry-pi-and-arduino-software.html).
 
 ## Description
 The library provides basic read/write functionality with I2C-devices for Mono v. 2.10.x.
@@ -17,7 +17,7 @@ $ pacman -Syu
 ```bash
 $ modprobe i2c-dev
 ```
-Or if you want to load the module automatically on boot add `i2c-dev` to `/etc/modules/`. If you're on Arch Linux add this line to a new file `/etc/modules-load.d/i2c.conf`.
+Or if you want to load the module automatically on boot add `i2c-dev` to `/etc/modules/`. If you're on Arch Linux create file `/etc/modules-load.d/i2c.conf` and add `i2c-dev` to the file.
 
 ## Library Usage
 1. The RPi.I2C.Net library requires a native-C library [libnativei2c.so](https://github.com/mshmelev/RPi.I2C.Net/blob/master/Lib/LibNativeI2C/libnativei2c.so), which is a part of this project.
@@ -52,5 +52,5 @@ Sending 3-byte packet to Arduino and reading back the respose 3-byte packet.
 Results: **830 transactions per second** (4980 Bytes/s total)
 
 ## License
-The project uses [MIT license](https://github.com/mshmelev/RPi.I2C.Net/blob/master/license.txt): do whatever your want wherever you want it.
+The project uses [MIT license](https://github.com/mshmelev/RPi.I2C.Net/blob/master/license.txt): do whatever you want wherever you want it.
 
