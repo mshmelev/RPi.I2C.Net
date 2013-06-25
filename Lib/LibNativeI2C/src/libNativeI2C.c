@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <linux/i2c.h>
 #include <linux/i2c-dev.h>
 #include <fcntl.h>
 #include <string.h>
@@ -69,5 +70,4 @@ int readRegister(int busHandle, int address, unsigned char reg, unsigned char *d
 
     return 0;
 }
-
 
