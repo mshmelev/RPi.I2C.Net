@@ -54,5 +54,14 @@ namespace RPi.I2C.Net
 		/// <returns></returns>
 		byte[] ReadBytes(int address, int count);
 
+        /// <summary>
+        /// Read a byte from device register
+        /// </summary>
+        /// <param name="address">: device address on i2c bus</param>
+        /// <param name="register : address of a register"></param>
+        /// <returns></returns>
+
+        byte[] ReadDeviceRegister(int address, byte register);
+
 	}
 }

@@ -11,7 +11,7 @@ extern int openBus (char*);
 extern int closeBus (int);
 extern int writeBytes (int, int, byte*, int);
 extern int readBytes (int, int, byte*, int);
-
+extern int readRegister(int, int, unsigned char, unsigned char*); 
 
 #ifdef __cplusplus
 }
